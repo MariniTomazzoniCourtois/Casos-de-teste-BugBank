@@ -16,8 +16,9 @@ Demonstrar habilidades em:
 
 ## 📂 Estrutura
 
-- `casos-de-teste-bugbank.xlsx` → Planilha com todos os cenários de teste
-
+## Estrutura
+- `CasosDeTeste.xlsx` → Planilha oficial
+- `CasosDeTeste.csv` → Versão em .csv
 ---
 
 ## 🧩 Cenários cobertos
