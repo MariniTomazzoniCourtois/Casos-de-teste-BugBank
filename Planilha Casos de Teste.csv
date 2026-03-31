@@ -1,0 +1,452 @@
+Planilha de Casos de Teste – BugBank,,,,,,,
+,,,,,,,
+,,,,,,,
+Cenário 1 – Registro de Usuário                                                        ,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-RG-001,Registrar novo usuário válido sem saldo,Registrar novo usuário sem saldo,Sistema disponível; usuário não cadastrado,"Nome: Teste 1
+Email: teste1@email.com
+Senha: Teste@123
+Confirmação senha: Teste@123
+","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Preencher campos Nome, Email, Senha, Confirmação senha com dados de teste informados
+4. Não marcar saldo
+5. Clicar em Cadastrar","Conta criada com sucesso, número da conta exibido, saldo = R$ 0,00, redirecionado para login","Campos Nome, Email, Senha e Confirmação de senha obrigatórios
+Opção de saldo inativo → saldo inicial = R$ 0,00
+Usuário consegue logar após cadastro
+Mensagem de sucesso clara com número da conta"
+CT-RG-002,Registrar novo usuário válido com saldo,Registrar novo usuário com saldo inicial,Sistema disponível; usuário não cadastrado,"Nome: Teste 2
+Email: teste2@email.com
+Senha: Teste@123
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Preencher campos Nome, Email, Senha, Confirmação senha com dados de teste informados
+4. Marcar saldo
+5. Clicar em Cadastrar","Conta criada com sucesso, número da conta exibido, saldo = R$ 1.000,00, redirecionado para login","Campos obrigatórios preenchidos
+Opção de saldo ativo → saldo inicial = R$ 1.000,00
+Mensagem de sucesso com número da conta"
+CT-RG-003,Registrar com email existente,Validar duplicidade de email,Sistema disponível; email já cadastrado,"Nome: Teste 3
+Email: teste2@email.com
+Senha: Teste@123
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Preencher campos Nome, Email, Senha, Confirmação senha com dados de teste informados
+4. Marcar saldo
+5. Clicar em Cadastrar","Sistema exibe mensagem: ""Email já cadastrado""
+Cadastro não é realizado
+Usuário permanece na tela de cadastro","O sistema deve validar exclusividade do email
+Não deve permitir cadastro duplicado
+Nenhum novo usuário deve ser criado"
+CT-RG-004,Registrar  com campo obrigatório nome vazio,Validar campo nome vazio,Sistema disponível,"Nome: 
+Email: teste2@email.com
+Senha: Teste@123
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Deixar campo Nome vazio
+4. Preencher campos Email, Senha, Confirmação senha com dados informados
+5. Marcar saldo
+6. Clicar em Cadastrar
+","Sistema exibe mensagem: ""Nome não pode ser vazio""
+Cadastro não é realizado","Campo Nome deve ser obrigatório
+Sistema deve validar campo vazio antes de enviar
+Nenhum usuário deve ser criado"
+CT-RG-005,Registrar  com campo obrigatório email vazio,Validar campo email vazio,Sistema disponível,"Nome: Teste 3
+Email:
+Senha: Teste@123
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Deixar campo Email vazio
+4. Preencher campos Nome, Senha, Confirmação senha  com dados de teste informados
+5. Marcar saldo
+6. Clicar em Cadastrar","Sistema exibe mensagem: ""Email não pode ser vazio""
+Cadastro não é realizado","Campo Email deve ser obrigatório
+Sistema deve validar campo vazio
+Nenhum usuário deve ser criado"
+CT-RG-006,Registrar  com campo obrigatório email inválido - sem @,Validar campo email sem @,Sistema disponível,"Nome: Teste 3
+Email: teste.com
+Senha: Teste@123
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Preencher campo Email sem @
+4. Preencher campos Nome, Senha, Confirmação senha  com dados de teste informados
+5. Marcar saldo
+6. Clicar em Cadastrar","Sistema exibe mensagem: ""Inclua um @ no endereço de email. Falta um @ em ""teste.com"" 
+Cadastro não é realizado","Campo Email deve ser obrigatório e válido
+Sistema deve validar campo
+Nenhum usuário deve ser criado"
+CT-RG-007,Registrar com campo obrigatório Senha vazio,Validar campo Senha vazio,Sistema disponível,"Nome: Teste 3
+Email: teste2@email.com
+Senha: 
+Confirmação senha: Teste@123","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Deixar campo Senha vazio
+4. Preencher campos Nome, Email, Confirmação senha  com dados de teste informados
+5. Marcar saldo
+6. Clicar em Cadastrar","Sistema exibe mensagem: ""Senha não pode ser vazio""
+Cadastro não é realizado","Campo Senha deve ser obrigatório
+Sistema deve validar campo vazio
+Nenhum usuário deve ser criado"
+CT-RG-008,Registrar com campo obrigatório Confirmação de senha vazio,Validar campo Confirmação de senha vazio,Sistema disponível,"Nome: Teste 3
+Email: teste2@email.com
+Senha: Teste@123
+Confirmação senha:","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Deixar campo Senha vazio
+4. Preencher campos Nome, Email, Confirmação senha  com dados de teste informados
+5. Marcar saldo
+6. Clicar em Cadastrar","Sistema exibe mensagem: ""Confirmar senha não pode ser vazio""
+Cadastro não é realizado","Campo Confirmação de senha deve ser obrigatório
+Sistema deve validar campo vazio
+Nenhum usuário deve ser criado"
+CT-RG-009,Registrar com senhas diferentes,Validar confirmação de senha incorreta,Sistema disponível,"Nome: Teste 3
+Email: teste2@email.com
+Senha: Teste@123
+Confirmação senha: Teste@12","1. Acessar página inicial (https://bugbank.netlify.app/#)
+2. Clicar em Registrar
+3. Preencher campos Nome, Email, Confirmação senha  com dados de teste informados
+4. Marcar saldo
+5. Clicar em Cadastrar
+","Sistema exibe mensagem: ""Senha e confirmação devem ser iguais""
+Cadastro não é realizado","Senha e confirmação devem ser iguais
+Sistema deve validar consistência entre campos
+Nenhum usuário deve ser criado"
+,,,,,,,
+,,,,,,,
+Cenário 2 – Login,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-LG-001,Login válido,Validar login com sucesso,Sistema disponível; usuário cadastrado,"Email: teste1@email.com
+Senha: Teste@123","1. Acessar a página inicial https://bugbank.netlify.app/#  
+2. Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". 
+","Usuário é redirecionado para a home
+","Email e senha devem ser obrigatórios
+Usuário válido deve ser autenticado
+Sistema deve redirecionar para home"
+CT-LG-002,Logout,Validar logout do sistema,Usuário logado conforme CT-LG-001,-,"1. Estar logado
+2. Clicar em Sair",Sistema sai da conta logada e redireciona o usuário para a página de login,"Sessão encerrada
+Redirecionado para login
+Não é possível acessar áreas internas sem login"
+CT-LG-003,Login com email não cadastrado,Validar erro com email inexistente,Sistema disponível,"Email: inexistente@email.com
+Senha: Teste@123","1.Acessar a página inicial https://bugbank.netlify.app/#  
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". 
+","Sistema exibe mensagem: ""Usuário inválido""
+Login não é realizado","Não deve autorizar acesso para usuários não cadastrados
+Sistema deve exibir mensagem padrão de erro"
+CT-LG-004,Login com senha incorreta,Validar erro de senha,Sistema disponível,"Email: teste1@email.com
+Senha: 1234","1.Acessar a página inicial https://bugbank.netlify.app/#  
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". ","Sistema exibe mensagem: ""Usuário inválido""
+Login não é realizado","Não deve autorizar acesso com credenciais inválidas
+"
+CT-LG-005,Login com campo Email em branco,Validar erro com email em branco,Sistema disponível,"Email: 
+Senha: Teste@123","1.Acessar a página inicial https://bugbank.netlify.app/#  
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". 
+","Sistema exibe mensagem: ""Usuário e senha precisam ser preenchidos""
+Login não é realizado","Email e Senha são obrigatórios
+Sistema deve validar campos antes do envio
+Não deve permitir tentativa com campos vazios"
+CT-LG-006,Login com campo Senha em branco,Validar erro com senha em branco,Sistema disponível,"Email: teste1@email.com
+Senha: ","1.Acessar a página inicial https://bugbank.netlify.app/#  
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". ","Sistema exibe mensagem: ""Usuário e senha precisam ser preenchidos""
+Login não é realizado","Email e senha são obrigatórios
+Sistema deve validar campos antes do envio
+Não deve permitir tentativa com campos vazios"
+,,,,,,,
+,,,,,,,
+Cenário 3 – Transferência,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-TR-001,Transferência entre contas cadastradas,Validar transferência entre contas,"O testador precisa ter registrado duas contas válidas.
+O testador precisa saber o número da conta digital para a qual será
+enviado o valor (CT-RG-001)
+Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.
+
+","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Valor da transferência: 10 
+","1.Clicar no botão “Transferência” na tela inicial da conta 
+2.Preencher os dados nos campos  “Número da Conta” e “Dígito” do CT-RG-001
+3.Informar o valor de 10 para a transferência no campo “Valor da Transferência” 
+4.Preencher o campo  “Descrição” com ‘Teste de Transferência’ 
+5.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem: ""Transferência realizada com sucesso""
+Usuário é redirecionado para o extrato
+Saldo do remetente é debitado corretamente
+Saldo do destinatário é creditado corretamente
+Transação aparece no extrato como:
+Transferência enviada (remetente)
+Transferência recebida (destinatário)
+Valor de saída exibido em vermelho com (-)
+Valor de entrada exibido em verde","Contas de origem e destino devem ser válidas
+Saldo deve ser maior ou igual ao valor da transferência
+Campo descrição deve ser obrigatório
+Valor da transferência deve ser maior que zero
+Número da conta e dígito devem conter apenas números"
+CT-TR-002,Recebimento entre contas cadastradas,Validar transferência entre contas,Testador deve estar com a conta registrada no CT-RG-002 logada,"Conta válida CT-RG-001
+Email: teste1@email.com
+Senha: Teste@123
+
+Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+","1.Preencher o campo Email e Senha com dados de teste informados
+2.Clicar em ""Acessar"". 
+3.Conferir se o saldo foi atualizado em ""saldo em conta"" na tela inicial
+4.Acessar Extrato","Saldo da conta destinatária é atualizado corretamente
+Valor recebido aparece no extrato como Transferência recebida
+Valor exibido em verde
+Transação contém data, tipo, valor e descrição","A transferência deve ter sido realizada com sucesso previamente
+Conta destinatária deve ser válida
+Transações devem ser registradas corretamente no extrato"
+CT-TR-003, Transferência para conta inválida,Validar transferência para conta com Número da Conta e Dígito zerados,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Numero da conta: 000-0
+Valor da transferência: 10 ","1.Clicar no botão “Transferência” na tela inicial da conta 
+2.Preencher os campos “Número da Conta”  e ""Dígitos"" com os dados informados para o teste
+4.Preencher campo “Valor da Transferência” 
+5.Preencher o campo  “Descrição” com ‘Teste dados zerados’ 
+6.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem: ""Conta inválida ou inexistente""
+Transferência não é realizada
+Nenhum valor é debitado","Sistema deve validar existência da conta destino
+Número da conta e dígito devem corresponder a uma conta válida
+Nenhuma transação deve ser registrada em caso de erro"
+CT-TR-004, Transferência para própria conta,Validar transferência para própria conta,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Numero da conta: inserir número da própria conta logada
+Valor da transferência: 10 ","1.Clicar no botão “Transferência” na tela inicial da conta 
+2.Preencher os campos “Número da Conta”  e ""Dígitos"" com os dados informados para o teste
+4.Preencher campo “Valor da Transferência” 
+5.Preencher o campo  “Descrição” com ‘Teste para mesma conta’ 
+6.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem: ""Não pode transferir para a mesma conta""
+Transferência não é realizada
+Nenhum valor é debitado","Sistema deve validar conta destino
+Número da conta e dígito devem corresponder a uma conta válida
+Nenhuma transação deve ser registrada em caso de erro"
+CT-TR-004,"Transferência com dados da conta em branco
+",Validar transferência para conta em branco,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Numero da conta:
+Valor da transferência: 5
+
+","1.Clicar no botão “Transferência” na tela inicial da conta
+2.No campo “Número da Conta” deixe em branco
+3.No campo “Dígito” deixe em branco
+4.No campo “Valor da Transferência” informe o valor de 10 para a transferência 
+5.No campo “Descrição” digite ‘Teste de campo conta vazio’
+6.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem de campo obrigatório
+Transferência não é realizada","Campos número da conta e dígito devem ser obrigatórios
+O sistema deve impedir envio com campos vazios
+Nenhuma transação deve ser processada"
+CT-TR-005,"Transferência com campo descrição em branco
+",Validar transferência para conta com campo obrigatório descrição em branco,"Deve estar com a conta registrada no CT-RG-002 logada. O testador precisa saber o número da conta digital para a qual será
+enviado o valor (CT-RG-001)","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Valor da transferência: 5
+Descrição: 
+","1.Clicar no botão “Transferência” na tela inicial da conta
+2.Preencher os campos “Número da Conta”  e ""Dígitos""
+3.No campo “Valor da Transferência” informe o valor de 10 para a transferência 
+4.No campo “Descrição” Deixe em branco
+5.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem informando que a descrição é obrigatória
+Transferência não é realizada","O campo descrição deve ser obrigatório
+O sistema deve validar preenchimento antes de enviar
+Nenhuma transação deve ser realizada sem descrição"
+CT-TR-006,Transferência com valor superior ao saldo da conta,Validar transferência com valor superior ao saldo,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.
+O testador precisa saber o número da conta digital válida para a qual será
+enviado o valor (CT-RG-001)
+","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Numero da conta:
+Valor da transferência: 5
+","1.Clicar no botão “Transferência” na tela inicial da conta
+2.No campo “Número da Conta” digite o número da conta referente ao CT-RG-001.
+3.No campo “Dígito” digite o dígito da conta referente ao CT-RG-001.
+4.No campo “Valor da Transferência” informe o valor de 1050 para a transferência 
+5.No campo “Descrição” digite “Teste de Saldo”
+6.Clicar no botão “Transferir agora”
+","Exibe mensagem de saldo insuficiente
+Transferência não é realizada
+Saldo permanece inalterado","O sistema deve validar saldo disponível antes da transferência
+O valor transferido não pode exceder o saldo
+Nenhuma transação deve ser registrada em caso de erro"
+CT-TR-007,Transferência com valor negativo,Validar transferência com valor negativo,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.
+O testador precisa saber o número da conta digital válida para a qual será
+enviado o valor (CT-RG-001)
+","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Valor da transferência: -10","1.Clicar no botão “Transferência” na tela inicial da conta
+2.No campo “Número da Conta” digite o número da conta referente ao CT-RG-001.
+3.No campo “Dígito” digite o dígito da conta referente ao CT-RG-001.
+4.No campo “Valor da Transferência” informe o valor de -10 para a transferência 
+5.No campo “Descrição” digite “Teste de Saldo negativo”
+6.Clicar no botão “Transferir agora”
+","Exibe mensagem: ""Valor da transferência não pode ser 0 ou negativo""
+Transferência não é realizada","O valor da transferência deve ser maior que zero
+O sistema deve validar entrada de valores inválidos
+Nenhuma transação deve ser processada"
+CT-TR-008,Transferência com valor = 0 (zero),Validar transferência com valor zerado,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.
+O testador precisa saber o número da conta digital válida para a qual será
+enviado o valor (CT-RG-001)
+","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Valor da transferência: 0","1.Clicar no botão “Transferência” na tela inicial da conta
+2.No campo “Número da Conta” digite o número da conta referente ao CT-RG-001.
+3.No campo “Dígito” digite o dígito da conta referente ao CT-RG-001.
+4.No campo “Valor da Transferência” informe o valor 0 para a transferência 
+5.No campo “Descrição” digite “Teste de Saldo negativo”
+6.Clicar no botão “Transferir agora”
+","Exibe mensagem: ""Valor da transferência não pode ser 0 ou negativo""
+Transferência não é realizada","O valor da transferência deve ser maior que zero
+O sistema deve validar entrada de valores inválidos
+Nenhuma transação deve ser processada"
+CT-TR-009,Transferência com valor vazio,Validar transferência com valor vazio,"O testador precisa saber o número da conta digital para a qual será
+enviado o valor.
+Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Valor da transferência: 0","1.Clicar no botão “Transferência” na tela inicial da conta 
+2.Preencher os dados nos campos  “Número da Conta” e “Dígito”
+3.No campo “Valor da Transferência” deixe vazio
+4.No campo “Descrição” digite ‘Teste de campo valor vazio’
+5.Clicar no botão “Transferir agora”
+","Exibe mensagem: ""Valor da transferência não pode ser 0 ou negativo""
+Transferência não é realizada","O campo valor deve ser obrigatório
+O sistema deve impedir envio sem valor
+Nenhuma transação deve ser processada"
+CT-TR-010,Conta com caracteres inválidos,Validar transferência com conta conténdo letras e números,"O testador precisa saber o número da conta digital para a qual será
+enviado o valor.
+Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123
+Numero da conta: 12D-6A
+Valor da transferência: 5
+","1.Clicar no botão “Transferência” na tela inicial da conta 
+2.Preencher os dados nos campos  “Número da Conta” e “Dígito” conforme dados de teste
+3.No campo “Valor da Transferência” deixe vazio
+4.No campo “Descrição” digite ‘Teste de campo com letras’
+5.Clicar no botão “Transferir agora”
+","Sistema exibe mensagem: ""Conta inválida ou inexistente""
+Transferência não é realizada
+Nenhum valor é debitado","Número da conta e dígito devem aceitar apenas números
+O sistema deve validar e bloquear caracteres inválidos
+Nenhuma transação deve ser registrada"
+,,,,,,,
+,,,,,,,
+Cenário 4 – Extrato,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-EX-001,Visualizar extrato,Validar visualização de extrato,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123",1.Clicar no menu “Extrato”,"Sistema exibe saldo atual corretamente
+Lista de transações é exibida com:
+Data
+Tipo
+Valor
+Valores:
+Entrada → verde
+Saída → vermelho com (-)","Saldo deve ser exibido corretamente
+Cada transação deve conter:
+Data
+Tipo
+Valor
+Valores devem seguir padrão visual:
+Entrada → verde
+Saída → vermelho com negativo
+Transações sem descrição devem exibir “(-)”
+Dados devem corresponder à conta logada"
+CT-EX-002,"Verificar se o saldo disponível no extrato é o mesmo da
+página inicial",Validar valores correspondentes entre tela inicial e tela do extrato,"Deve estar com a conta registrada no CT-RG-002 (com
+saldo) logada.","Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123","1.O saldo em conta será exibido na tela inicial em ""Saldo disponível""
+2.Clicar no menu “Extrato”","O saldo em conta exibido na tela inicial
+deverá ser correspondente ao saldo do extrato bancário.","O saldo exibido na tela inicial deve ser exatamente igual ao saldo exibido no extrato
+O saldo deve ser atualizado corretamente após qualquer transação"
+CT-EX-003,Verificar histórico de transações,Validar histórico de transações,"Deve estar com a conta registrada no CT-RG-001 (com
+saldo) logada.","Conta válida CT-RG-001
+Email: teste1@email.com
+Senha: Teste@123",1.Clicar no menu “Extrato”,"Saldo da home deve ser igual ao do extrato
+Atualizações devem refletir imediatamente após transações","Todas as transações devem ser listadas
+Ordem deve ser da mais recente para a mais antiga
+Dados devem conter: Data; Tipo; Valor; Descrição (ou “(-)”)
+Valores devem estar corretos (entrada/saída)
+Não deve haver transações duplicadas ou ausentes
+Deve haver consistência com operações realizadas"
+,,,,,,,
+,,,,,,,
+Cenário 5 – Performance,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-PF-001,Tempo de resposta ao fazer login,Validar tempo de resposta da aplicação no login,Sistema disponível; usuário cadastrado,"Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123","1.Acessar a página inicial https://bugbank.netlify.app/#  
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar""
+4. Medir tempo de resposta",Login realizado com sucesso dentro do tempo esperado,"Tempo de resposta ≤ 2 segundos
+"
+,,,,,,,
+,,,,,,,
+Cenário 6 – Carga,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-CG-001,Múltiplos usuários acessando o aplicativo,Validar comportamento com vários usuários acessando ao mesmo tempo,"Ambiente preparado para teste de carga
+Testador deve ter Email e Senha de 150 usuários válidos",Contas válidas contendo Email e Senha,"1.Simular Login de 150 usuários simultaneamente
+2.Monitorar desempenho",Sistema continuar estável,"Não ocorrer falhas críticas
+Tempo de resposta aceitável
+Sistema não cair"
+,,,,,,,
+,,,,,,,
+Cenário 7 – Segurança,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-SG-001,Sessão expirada,Validar expiração de sessão por inatividade,Deve estar com a conta registrada no CT-RG-002 logada.,"Conta válida CT-RG-002
+Email: teste2@email.com
+Senha: Teste@123","1. Acessar a página inicial https://bugbank.netlify.app/#  
+2. Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"". 
+4.Ficar inativo por um período (ex: 15 min)
+5.Tentar realizar transferência",Sessão expirada,"Usuário redirecionado para login
+Nenhuma ação permitida sem autenticação"
+,,,,,,,
+,,,,,,,
+Cenário 8 – Usabilidade,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-US-001,Clareza nas mensagens de erro,Validar se mensagens de erro/aviso são compreensíveis,Sistema disponível,"Dados inválidos: Email: inexistente@email.com
+Senha: Teste@123
+Dados válidos:
+Email: teste1@email.com
+Senha: Teste@123","Realizar ações inválidas (login errado, cadastro inválido)
+Observar mensagens",Mensagens claras e úteis,"Usuário entende o erro
+Mensagens não são técnicas
+Interface amigável"
+,,,,,,,
+,,,,,,,
+Cenário 9 – Compatibilidade,,,,,,,
+ID,Título,Descrição,Pré-condições,Dados de Teste,Passos,Resultado Esperado,Critérios de Aceitação
+CT-CD-001,Compatibilidade com navegadores diferentes,Validar funcionamento em diferentes browsers,Sistema disponível,"Email: teste1@email.com
+Senha: Teste@123","1.Acessar a página inicial https://bugbank.netlify.app/#
+2.Preencher o campo Email e Senha com dados de teste informados
+3.Clicar em ""Acessar"".
+4- Repetir processo nos navegadores Chrome, Firefox, Edge",Sistema funciona corretamente em todos,"Layout consistente
+Funcionalidades operando normalmente
+Sem quebra de interface"
