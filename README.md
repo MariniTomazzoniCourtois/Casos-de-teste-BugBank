@@ -17,8 +17,9 @@ Demonstrar habilidades em:
 ## 📂 Estrutura
 
 ## Estrutura
-- `CasosDeTeste.xlsx` → Planilha oficial
-- `CasosDeTeste.csv` → Versão em .csv
+- `Planilha de Casos de Teste - Marini.xlsx` → Planilha oficial
+- `Planilha Casos de Teste.csv` → Versão em .csv
+
 ---
 
 ## 🧩 Cenários cobertos
