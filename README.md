@@ -1,6 +1,11 @@
- 🧪 Casos de Testes - BugBank
+ 🧪 Projeto BugBank
 
+Atividades realizadas: 
 Este repositório contém a documentação de casos de teste desenvolvidos para a aplicação BugBank, com foco na validação dos principais fluxos funcionais e não funcionais do sistema.
+
+Atividades em andamento:
+Testes automatizados com Cypress contendo o padrão Page Object Model para melhor organização e manutenção.
+Os testes tem como objetivo cobrir os principais fluxos de cadastro, login, transferência e extrato, validando mensagens de erro e regras de negócio.
 
 ---
 
@@ -11,6 +16,7 @@ Demonstrar habilidades em:
 - Organização e documentação
 - Pensamento crítico em QA
 - Cobertura de cenários positivos e negativos
+- Boas práticas em automação
 
 ---
 
